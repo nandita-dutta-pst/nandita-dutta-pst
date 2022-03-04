@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Sign Up form</title>
+
+    <!-- Links / CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script src="https://use.fontawesome.com/84ecc673e4.js"></script>
+
+    <!-- style -->
+
+    <style>
+      .light-gray {
+        background-color: #d3d3d3;
+      }
+      .dark-gray {
+        background-color: #c0c0c0;
+      }
+
+      @media screen and (max-width: 320px) {
+        .hide {
+          display: none;
+        }
+        .hidden {
+          visibility: hidden;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .hide {
+          display: none;
+        }
+        .hidden {
+          visibility: hidden;
+        }
+      }
+      @media only screen and (max-width: 1346px) {
+        .set {
+          display: grid;
+          grid-template-columns: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container w-75 my-5">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="d-flex pb-3 pt-2 light-gray">
+            <div class="p-2 w-75">
+              <h4 class="text-muted">Login to our site</h4>
+              <h6 class="text-muted">Enter username and password to log on.</h6>
+            </div>
+            <div class="w-25 d-flex align-items-center justify-content-center">
+              <i class="fa fa-key fa-4x text-muted text-center hide"></i>
+            </div>
+          </div>
+          <div class="dark-gray">
+            <form method="post" class="form-control dark-gray pb-3" action="/login">
+              <label for="" class="form-label mt-3">Username:</label>
+              <input
+                type="text"
+                placeholder="Enter your username"
+                class="form-control"
+                id="uname"
+                name = "uname"
+              />
+              <span class="text-danger" style="display: none;" id="username-alert">Username must contain characters between (A-Z)/(a-z).<br></span>
+              <label for="" class="form-label mt-2">Password:</label>
+              <input
+                type="password"
+                name="pass"
+                id="pass"
+                placeholder="Enter your password"
+                class="form-control"
+              />
+              <span class="text-danger" style="display: none;" id="password-alert">Password must contain minimum 6 characters and one uppercase,lowercase and special characters.<br></span>
+              <button class="btn btn-primary form-control mt-3" id="signin" type="submit">Sign in</button>
+            </form>
+          </div>
+          <div class="my-5 text-center h4 text-muted">...Or login with</div>
+          <div class="row gap-2 set">
+            <div class="col-lg">
+              <a
+                class="btn btn-primary w-100"
+                href="https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjQzNzA4NzEzLCJjYWxsc2l0ZV9pZCI6MjY5NTQ4NDUzMDcyMDk1MX0%3D"
+                target="_balnk"
+                style="background-color: #4267b2"
+              >
+                <i class="fa fa-facebook text-white"></i> Facebook
+              </a>
+            </div>
+            <div class="col-sm">
+              <a
+                class="btn btn-primary w-100"
+                href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D"
+                style="background-color: #00acee"
+                target="_balnk"
+              >
+                <i class="fa fa-twitter"></i> Twitter
+              </a>
+            </div>
+
+            <div class="col-lg">
+              <a
+                class="btn btn-primary w-100"
+                href="https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+                style="background-color: #db4a39"
+                target="_balnk"
+              >
+                <i class="fa fa-google-plus"></i>
+                Google<sup>+</sup>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 text-center">
+          <i class="vr h-75 my-5 hidden"></i>
+        </div>
+        <div class="col-md-5">
+          <div class="d-flex pb-3 pt-2 light-gray">
+            <div class="p-2 w-75">
+              <h4 class="text-muted">Sign up now</h4>
+              <h6 class="text-muted">
+                Fill in the form below to get instant access.
+              </h6>
+            </div>
+            <div class="w-25 d-flex align-items-center justify-content-center">
+              <i class="fa fa-pencil fa-4x text-muted text-center hide"></i>
+            </div>
+          </div>
+          <div class="dark-gray">
+            <form method="post" class="form-control dark-gray">
+              <label for="" class="form-label mt-3">Name:</label>
+              <div class="row">
+                <div class="col-md">
+                  <input
+                    type="text"
+                    placeholder="First"
+                    class="w-100 form-control"
+                    id="fname"
+                    name="fname"
+                  />
+                  <span id="fname-alert" style="display: none;" class="text-danger">First name must contain characters between a-z.</span>
+                </div>
+                <div class="col-md">
+                  <input
+                    id="lname"
+                    type="text"
+                    placeholder="Last"
+                    class="form-control w-100"
+                    name="lname"
+                  />
+                  <span id="lname-alert" style="display: none;" class="text-danger">Last name must contain characters between a-z.</span>
+                </div>
+              </div>
+              <label for="" class="form-label mt-2">Email:</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email "
+                class="form-control"
+                name="email"
+              />
+              <span id="email-alert" style="display: none;" class="text-danger">email must contain a valid email in combination with '@' and characters.<br></span>
+              <label for="" class="form-label mt-2">Phone:</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                placeholder="Phone Number "
+                class="form-control"
+                name ="phone"
+              />
+              <span id="phone-alert" style="display: none;" class="text-danger">Phone number must be of 10 character from 0-9.<br></span>
+              
+            
+              <label for="" class="form-label mt-2">Enter Password:</label>
+              <input
+                type="password"
+                name="passwordd"
+                id="enterpass"
+                placeholder="Enter your password"
+                class="form-control"
+              />
+
+              <label for="" class="form-label mt-2"> Confirm Password:</label>
+              <input
+                type="password"
+                name="cfmpass"
+                id="confirmpass"
+                placeholder="Confirm password"
+                class="form-control"
+              />
+              <label for ="" class = "form-label mt-2">Country:</label>
+              <select
+                name="country"
+                id="country"
+                class="form-control form-select"
+              >
+                <option value="" disabled selected hidden>Country</option>
+                <option value="india">India</option>
+                <option value ="usa">USA</option>
+                <option value="pakistan">Pakistan</option>
+                <option value="other">Other</option>
+              </select>
+              <span id="country-alert" style="display: none;" class="text-danger">Please select country.<br></span>
+              <div class="row mt-3">
+                <label for="" class="col-md-3 form-label">Gender:</label>
+                <div class="col-md-3 form-check ms-3">
+                  <input type="radio" name="gender" class="form-check-input" id="genderm" value="male"/>
+                  <label for="" class="form-check-label">Male</label>
+                </div>
+                <div class="col-md-3 form-check ms-3">
+                  <input type="radio" name="gender" class="form-check-input" id="genderf" value="female" />
+                  <label for="" class="form-check-label">Female</label>
+                </div>
+              </div>
+              <span id="gender-alert" style="display: none;" class="text-danger">Please select your gender<br></span>
+              <label for="" class="form-label mt-1">About yourself:</label>
+              <textarea
+                name="about"
+                id="about"
+                cols="30"
+                rows="3"
+                placeholder="About yourself"
+                class="form-control"
+                style="resize: none"
+                
+              ></textarea>
+              <span id="about-alert" style="display: none;" class="text-danger">This field cant be empty.</span>
+              <div class="form-check mt-3">
+                <input
+                  type="checkbox"
+                  name="agree"
+                  id="agree"
+                  class="form-check-input"
+                />
+                <label for="" class="form-check-label"
+                  >All the information filled above is true.</label
+                >
+                <span id="agree-alert" class="text-danger" style="display: none;">Important!!</span>
+
+              </div>
+              <div class="row mt-3 pb-2 gap-2">
+                <div class="col-md">
+                  <button type="submit" class="btn btn-primary w-100" id="signup">
+                    Signup
+                  </button>
+                </div>
+                <div class="col-md">
+                  <button type="reset" class="btn btn-danger w-100">
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>

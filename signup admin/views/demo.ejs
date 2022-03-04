@@ -1,0 +1,86 @@
+
+<!--Update form html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ 
+</head>
+<body>
+  <h2 class="text-center text-danger ">Update Form</h2>
+  
+  <h4 class ="text-center text-info text font-italic ">Fill the details you want to update...</h4>
+
+  <div class="container w-50 bg-secondary text-white">
+  <% if(data.length != 0){
+    data.map(element=>{
+      %>
+      <form method="POST">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+         <div class="col">
+            <div class="form-outline mt-4">
+              <label class="form-label" for="form6Example2">Name</label>
+              <input type="text" id="name" class="form-control" value ="<%= element.Name %>"  name="name"/>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form6Example3">Email</label>
+      
+          <input type="text" id="email" class="form-control" value ="<%= element.Email %>" name="email"/>
+        </div>
+      
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <label class="form-label fw-bold" for="form6Example4">Phone</label>
+      
+          <input type="text" id="form6Example4" class="form-control"  value ="<%= element.Phone %>" name="phone"/>
+        </div>
+        
+        <label for="" class="form-label mt-2">Country:</label>
+        <select
+          name="country"
+                      id="country"
+                      class="form-control form-select">
+                      <option value="india" <% if(element.Country == 'india'){%>selected<%}%> >India</option>
+                      <option value="other" <% if(element.Gender == 'other'){%>checked<%}%>>Other</option>
+                    </select>
+                    <span id="country-alert" style="display: none;" class="text-danger">Please select country.<br></span>
+        
+        <div class="row mt-3">
+          <label for="" class="col-md-3 form-label">Gender:</label>
+          <div class="col-md-3 form-check ms-3">
+            <input type="radio" name="gender" class="form-check-input" id="genderm" value="male" <% if(element.Gender == 'male'){%>checked<%}%>/>
+            <label for="" class="form-check-label">Male</label>
+          </div>
+          <div class="col-md-3 form-check ms-3">
+            <input type="radio" name="gender" class="form-check-input" id="genderf" value="female" <% if(element.Gender == 'Female'){%>checked<%}%>/>
+            <label for="" class="form-check-label">Female</label>
+          </div>
+        </div>
+        <span id="gender-alert" style="display: none;" class="text-danger">Please select your gender<br></span>
+      
+      
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form6Example7">About</label>
+      
+          <textarea name="about" class="form-control" id="form6Example7" rows="4"><%= element.About %></textarea>
+        </div>
+      
+        <!-- Submit button -->
+      <button type="submit" style="margin: 0 0 0 35%;" class="btn btn-primary btn-block mb-4 text-center w-25">Update</button>      
+</form>
+
+      <%
+    })  } %>
+</div></div>
+</body>
+</html>
